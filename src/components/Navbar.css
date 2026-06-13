@@ -2,11 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 40px;
-  background: rgba(250, 250, 247, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid #E8E4DC;
+  padding: 18px 48px;
+  background: #0F1115;
+  border-bottom: 1px solid #232730;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,44 +13,82 @@
 }
 
 .navbar-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 28px;
+  background: #C9A227;
+  color: #0F1115;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #1A1A1A;
+  color: #ECEAE4;
 }
 
 .logo-italic {
   font-style: italic;
-  color: #D4622A;
+  color: #C9A227;
+  margin-left: 4px;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 36px;
 }
 
 .nav-links li a {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  color: #5A564E;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #9B9890;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  transition: color 0.2s ease;
+  letter-spacing: 0.12em;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 1px;
+  background: #C9A227;
+  transition: width 0.25s ease;
 }
 
 .nav-links li a:hover {
-  color: #D4622A;
+  color: #ECEAE4;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }
 
 .menu-icon {
   display: none;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
   cursor: pointer;
-  color: #1A1A1A;
+  color: #ECEAE4;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 @media (max-width: 768px) {
@@ -62,10 +98,10 @@
 
   .nav-links {
     position: absolute;
-    top: 68px;
+    top: 64px;
     left: 0;
-    background: #FAFAF7;
-    border-bottom: 1px solid #E8E4DC;
+    background: #0F1115;
+    border-bottom: 1px solid #232730;
     flex-direction: column;
     width: 100%;
     text-align: center;
@@ -79,6 +115,6 @@
 
   .nav-links li {
     padding: 16px 0;
-    border-top: 1px solid #E8E4DC;
+    border-top: 1px solid #232730;
   }
 }

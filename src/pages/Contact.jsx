@@ -4,53 +4,56 @@ import '../App.css';
 function Contact() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = (e) => {
-    e.preventDefault();
+  const handleCopyEmail = () => {
     navigator.clipboard.writeText('carlsebastianlazaro446@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
   };
 
   return (
-    <div className="page contact-page">
-      <span className="section-number">05</span>
-      <span className="page-label">Contact</span>
-      <h1>Get in touch</h1>
-      <p>Feel free to reach out through any of the platforms below.</p>
+    <div id="contact" className="contact-page">
+      <div className="ct-top">
+        <span className="ct-num">05</span>
+        <span className="ct-sep" />
+        <span className="ct-lbl">Contact</span>
+      </div>
+      <h1>Let's talk.</h1>
+      <p className="ct-intro">Feel free to reach out through any of the platforms below.</p>
 
-      <div className="contact-list">
-        <a href="mailto:carlsebastianlazaro446@gmail.com" className="contact-item">
-          <span className="contact-icon">✉</span>
-          <span className="contact-text">
-            <span className="label">Email</span>
-            <span className="value">carlsebastianlazaro446@gmail.com</span>
-          </span>
-          <span className="contact-arrow">→</span>
+      <div className="ct-list">
+        <a href="mailto:carlsebastianlazaro446@gmail.com" className="ct-item">
+          <div className="ct-icon">✉</div>
+          <div className="ct-text">
+            <span className="ct-label">Email</span>
+            <span className="ct-value">carlsebastianlazaro446@gmail.com</span>
+          </div>
+          <span className="ct-arrow">↗</span>
         </a>
 
-        <a href="https://linkedin.com/in/yourname" target="_blank" rel="noreferrer" className="contact-item">
-          <span className="contact-icon">in</span>
-          <span className="contact-text">
-            <span className="label">LinkedIn</span>
-            <span className="value">linkedin.com/in/yourname</span>
-          </span>
-          <span className="contact-arrow">→</span>
+        <a href="https://linkedin.com/in/yourname" target="_blank" rel="noreferrer" className="ct-item">
+          <div className="ct-icon">in</div>
+          <div className="ct-text">
+            <span className="ct-label">LinkedIn</span>
+            <span className="ct-value">linkedin.com/in/yourname</span>
+          </div>
+          <span className="ct-arrow">↗</span>
         </a>
 
-        <a href="https://github.com/carlsebastian" target="_blank" rel="noreferrer" className="contact-item">
-          <span className="contact-icon">⌥</span>
-          <span className="contact-text">
-            <span className="label">GitHub</span>
-            <span className="value">github.com/carlsebastian</span>
-          </span>
-          <span className="contact-arrow">→</span>
+        <a href="https://github.com/carlsebastian" target="_blank" rel="noreferrer" className="ct-item">
+          <div className="ct-icon">⌥</div>
+          <div className="ct-text">
+            <span className="ct-label">GitHub</span>
+            <span className="ct-value">github.com/carlsebastian</span>
+          </div>
+          <span className="ct-arrow">↗</span>
         </a>
       </div>
 
-      <div className="copy-row">
-        <button className="copy-btn" onClick={handleCopyEmail}>
-          {copied ? 'Copied to clipboard' : 'Copy email address'}
+      <div className="ct-copy-row">
+        <button className={`ct-copy-btn${copied ? ' done' : ''}`} onClick={handleCopyEmail}>
+          {copied ? 'Copied!' : 'Copy email address'}
         </button>
+        <span className={`ct-copy-hint${copied ? ' show' : ''}`}>Copied to clipboard</span>
       </div>
     </div>
   );

@@ -1,52 +1,27 @@
 import React, { useState } from 'react';
+import '../App.css';
 import './Navbar.css';
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
-  const links = [
-    { id: 'home', label: '01 Home' },
-    { id: 'about', label: '02 About' },
-    { id: 'techstack', label: '03 Stack' },
-    { id: 'experience', label: '04 Work' },
-    { id: 'contact', label: '05 Contact' },
-  ];
-
-  const handleClick = (e, id) => {
-    e.preventDefault();
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-    closeMenu();
-  };
+  const [active, setActive] = useState(false);
 
   return (
     <nav className="navbar">
-      <a href="#home" className="navbar-logo" onClick={(e) => handleClick(e, 'home')}>
-        Carl <span className="logo-italic">Sebastian</span>
+      <a href="#home" className="navbar-logo">
+        <span className="logo-box">CS</span>
+        <span className="logo-text">Carl<span className="logo-italic">Sebastian</span></span>
       </a>
 
-      <div className="menu-icon" onClick={toggleMenu}>
-        {menuOpen ? '✕' : 'Menu'}
-      </div>
+      <span className="menu-icon" onClick={() => setActive(!active)}>
+        {active ? 'Close' : 'Menu'}
+      </span>
 
-      <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-        {links.map((link) => (
-          <li key={link.id}>
-            <a href={`#${link.id}`} onClick={(e) => handleClick(e, link.id)}>
-              {link.label}
-            </a>
-          </li>
-        ))}
+      <ul className={`nav-links ${active ? 'active' : ''}`}>
+        <li><a href="#home" onClick={() => setActive(false)}>Home</a></li>
+        <li><a href="#about" onClick={() => setActive(false)}>About</a></li>
+        <li><a href="#stack" onClick={() => setActive(false)}>Stack</a></li>
+        <li><a href="#experience" onClick={() => setActive(false)}>Experience</a></li>
+        <li><a href="#contact" onClick={() => setActive(false)}>Contact</a></li>
       </ul>
     </nav>
   );

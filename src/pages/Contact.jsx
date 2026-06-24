@@ -17,7 +17,7 @@ function Contact() {
         <span className="ct-sep" />
         <span className="ct-lbl">Contact</span>
       </div>
-      <h1>Let's talk.</h1>
+      <h1>Contact.</h1>
       <p className="ct-intro">Feel free to reach out through any of the platforms below.</p>
 
       <div className="ct-list">
@@ -43,7 +43,7 @@ function Contact() {
           <div className="ct-icon">⌥</div>
           <div className="ct-text">
             <span className="ct-label">GitHub</span>
-            <span className="ct-value">github.com/carlsebastian</span>
+            <span className="ct-value">https://github.com/carlsebastianlazaro446-create/kush.git</span>
           </div>
           <span className="ct-arrow">↗</span>
         </a>

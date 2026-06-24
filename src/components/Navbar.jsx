@@ -18,7 +18,6 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-logo">
         <img src={ProfilePic} alt="Carl" className="navbar-avatar" />
-        <span className="logo-text">Carl<span className="logo-italic">.</span></span>
       </div>
 
       <button

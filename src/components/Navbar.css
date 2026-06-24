@@ -23,11 +23,11 @@
 }
 
 .navbar-avatar {
-  width: 80px;
-  height: 80px;
+  width: 42px;
+  height: 42px;
   border-radius: 6px;
   object-fit: cover;
-  border: 2px solid #232730;
+  
 }
 
 .logo-text {
@@ -103,7 +103,8 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 16px 24px; /* tighter side padding on mobile */
+    padding: 16px 24px;
+    border-bottom: none;        /* ← border removed on mobile */
   }
 
   .menu-icon {
@@ -111,16 +112,16 @@
   }
 
   .nav-links {
-    /* slide-down with max-height animation instead of display:none jump */
     display: flex;
     flex-direction: column;
     gap: 0;
-    position: fixed;       /* fixed so it clears page scroll */
-    top: 73px;             /* navbar height */
+    position: fixed;
+    top: 73px;
     left: 0;
     width: 100%;
     background: #0F1115;
-    border-bottom: 1px solid #232730;
+    border-top: none;           /* ← no stray lines */
+    border-bottom: none;        /* ← border removed */
     padding: 0;
     box-sizing: border-box;
     max-height: 0;
@@ -129,26 +130,22 @@
   }
 
   .nav-links.active {
-    max-height: 360px;     /* tall enough for 5 links */
+    max-height: 360px;
     padding: 4px 0 12px;
   }
 
   .nav-links li {
     text-align: center;
     padding: 14px 0;
-    border-top: 1px solid #1a1d23;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: 1px solid #1a1d23;
+    border-top: none;           /* ← dividers between items removed */
+    border-bottom: none;
   }
 
   .nav-links li a {
-    font-size: 0.8rem;     /* slightly larger tap target text */
+    font-size: 0.8rem;
     letter-spacing: 0.14em;
   }
 
-  /* underline hover still works on touch long-press, keep it */
   .nav-links li a::after {
     bottom: -3px;
   }

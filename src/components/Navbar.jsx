@@ -8,7 +8,7 @@ function Navbar() {
   const handleScroll = (e, id) => {
     e.preventDefault();
     setMenuOpen(false);
-    document.getElementById(id).scrollIntoView({
+    document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
@@ -17,17 +17,18 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img
-          src={ProfilePic}
-          alt="Carl"
-          className="navbar-avatar"
-        />
+        <img src={ProfilePic} alt="Carl" className="navbar-avatar" />
         <span className="logo-text">Carl<span className="logo-italic">.</span></span>
       </div>
 
-      <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+      <button
+        className="menu-icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+      >
         {menuOpen ? '[ close ]' : '[ menu ]'}
-      </div>
+      </button>
 
       <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
         <li><a href="#home"       onClick={(e) => handleScroll(e, 'home')}>Home</a></li>

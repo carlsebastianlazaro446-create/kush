@@ -25,9 +25,9 @@
 .navbar-avatar {
   width: 42px;
   height: 42px;
-  border-radius: 6px;        /* ← box with slightly rounded corners */
+  border-radius: 6px;
   object-fit: cover;
-  border: 2px solid 
+  border: 2px solid #232730;
 }
 
 .logo-text {
@@ -85,39 +85,71 @@
 /* MOBILE hamburger */
 .menu-icon {
   display: none;
+  background: none;
+  border: none;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
   cursor: pointer;
   color: #C9A227;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  padding: 4px 0;
+}
+
+.menu-icon:focus-visible {
+  outline: 1px solid #C9A227;
+  outline-offset: 4px;
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 16px 24px; /* tighter side padding on mobile */
+  }
+
   .menu-icon {
     display: block;
   }
 
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 72px;
+    /* slide-down with max-height animation instead of display:none jump */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: fixed;       /* fixed so it clears page scroll */
+    top: 73px;             /* navbar height */
     left: 0;
     width: 100%;
-    flex-direction: column;
     background: #0F1115;
     border-bottom: 1px solid #232730;
-    padding: 8px 0;
+    padding: 0;
     box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
   }
 
   .nav-links.active {
-    display: flex;
+    max-height: 360px;     /* tall enough for 5 links */
+    padding: 4px 0 12px;
   }
 
   .nav-links li {
     text-align: center;
     padding: 14px 0;
     border-top: 1px solid #1a1d23;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: 1px solid #1a1d23;
+  }
+
+  .nav-links li a {
+    font-size: 0.8rem;     /* slightly larger tap target text */
+    letter-spacing: 0.14em;
+  }
+
+  /* underline hover still works on touch long-press, keep it */
+  .nav-links li a::after {
+    bottom: -3px;
   }
 }

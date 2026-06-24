@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;700&display=swap');
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 48px;
+  padding: 16px 48px;
   background: #0F1115;
   border-bottom: 1px solid #232730;
   position: fixed;
@@ -10,54 +12,53 @@
   left: 0;
   width: 100%;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
+/* LEFT: avatar + name */
 .navbar-logo {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.logo-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 28px;
-  background: #C9A227;
-  color: #0F1115;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  border-radius: 3px;
+.navbar-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;        /* ← box with slightly rounded corners */
+  object-fit: cover;
+  border: 2px solid 
 }
 
 .logo-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #ECEAE4;
+  letter-spacing: 0.03em;
 }
 
 .logo-italic {
   font-style: italic;
   color: #C9A227;
-  margin-left: 4px;
 }
 
+/* RIGHT: nav links */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 36px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #9B9890;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  text-decoration: none;
   position: relative;
   transition: color 0.25s ease;
 }
@@ -66,7 +67,7 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -5px;
   width: 0%;
   height: 1px;
   background: #C9A227;
@@ -81,12 +82,13 @@
   width: 100%;
 }
 
+/* MOBILE hamburger */
 .menu-icon {
   display: none;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   cursor: pointer;
-  color: #ECEAE4;
+  color: #C9A227;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -97,16 +99,16 @@
   }
 
   .nav-links {
+    display: none;
     position: absolute;
-    top: 64px;
+    top: 72px;
     left: 0;
+    width: 100%;
+    flex-direction: column;
     background: #0F1115;
     border-bottom: 1px solid #232730;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    display: none;
-    padding: 12px 0;
+    padding: 8px 0;
+    box-sizing: border-box;
   }
 
   .nav-links.active {
@@ -114,21 +116,8 @@
   }
 
   .nav-links li {
-    padding: 16px 0;
-    border-top: 1px solid #232730;
+    text-align: center;
+    padding: 14px 0;
+    border-top: 1px solid #1a1d23;
   }
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.navbar-avatar {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;       /* makes it a circle */
-  object-fit: cover;        /* crops nicely */
-  border: 2px solid #fff;   /* optional white border */
 }

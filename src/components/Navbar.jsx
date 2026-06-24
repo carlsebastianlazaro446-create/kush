@@ -1,22 +1,40 @@
+import { useState } from 'react';
 import './Navbar.css';
-import ProfilePic from '../assets/Picture1.jpg';  // ← import it here
+import ProfilePic from '../assets/Picture1.jpg';
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    document.getElementById(id).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <img
-          src={ProfilePic}   // ← use the imported variable here
-          alt="Profile"
+          src={ProfilePic}
+          alt="Carl"
           className="navbar-avatar"
         />
-        <span>Kush</span>
+        <span className="logo-text">Carl<span className="logo-italic">.</span></span>
       </div>
-      <ul className="navbar-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/experience">Experience</a></li>
-        <li><a href="/contact">Contact</a></li>
+
+      <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? '[ close ]' : '[ menu ]'}
+      </div>
+
+      <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+        <li><a href="#home"       onClick={(e) => handleScroll(e, 'home')}>Home</a></li>
+        <li><a href="#about"      onClick={(e) => handleScroll(e, 'about')}>About</a></li>
+        <li><a href="#techstack"  onClick={(e) => handleScroll(e, 'techstack')}>Tech Stack</a></li>
+        <li><a href="#experience" onClick={(e) => handleScroll(e, 'experience')}>Experience</a></li>
+        <li><a href="#contact"    onClick={(e) => handleScroll(e, 'contact')}>Contact</a></li>
       </ul>
     </nav>
   );

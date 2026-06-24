@@ -30,21 +30,6 @@ function Home() {
           <a href="#contact" className="hero-btn secondary" onClick={(e) => handleClick(e, 'contact')}>Get in touch</a>
         </div>
       </div>
-
-      <div className="hero-side">
-        <div className="hero-stat">
-          <span className="stat-number mono">04+</span>
-          <span className="stat-label mono">Years in IT studies</span>
-        </div>
-        <div className="hero-stat">
-          <span className="stat-number mono">10+</span>
-          <span className="stat-label mono">Tools &amp; technologies</span>
-        </div>
-        <div className="hero-stat">
-          <span className="stat-number mono">∞</span>
-          <span className="stat-label mono">Curiosity to learn</span>
-        </div>
-      </div>
     </div>
   );
 }
